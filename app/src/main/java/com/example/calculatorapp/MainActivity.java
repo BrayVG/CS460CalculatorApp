@@ -16,6 +16,11 @@ import com.google.android.material.button.MaterialButton;
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.Scriptable;
 
+/**
+ *
+ * @author Brayan Villanueva Garcia
+ *
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView resultTV, solutionTV;
@@ -71,9 +76,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     /**
+     *Finds the button in the layout by its ID and sets this activity as its click listener
      *
-     * @param btn
-     * @param id
+     * @param btn the button field to assign
+     * @param id the ID of the button
      */
     void assignID(MaterialButton btn, int id){
         btn = findViewById(id);
@@ -81,6 +87,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    /**
+     * Handles the clicks on every button
+     *
+     * @param view The view that was clicked.
+     */
     @Override
     public void onClick(View view) {
         MaterialButton button = (MaterialButton) view;
@@ -111,6 +122,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    /**
+     * Evaluates the math expression using Rhino JavaScript.
+     *
+     * @param data the expression to evaluate
+     * @return the result as a string or "Error" if the expression is incorrect
+     */
     String getResults(String data){
         try{
             Context context = Context.enter();
